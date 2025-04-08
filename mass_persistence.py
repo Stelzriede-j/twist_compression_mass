@@ -1,3 +1,40 @@
+"""
+Title: Appendix A.3 – Persistence of Mass Once Formed
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script implements the test described in Appendix A.3 of the paper:
+    "Twist Compression and the Yang–Mills Mass Gap"
+
+    Purpose:
+    - Validates: Persistence of a localized mass state under continued evolution
+    - Locking logic: duration-based (≥ 5 frames)
+    - Parameters used: λ = 0.5, n = 1.8 (same as local mass formation test)
+
+Reproducibility:
+    - Matches Figure: appendix_persistence_duration5.png
+    - Matches script: mass_persistence.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L         : Lattice size (L x L grid)
+# T         : Number of time steps
+# dx, dt    : Spatial and temporal resolution
+# m         : Mass-like parameter for twist inertia
+# r         : Radius scaling factor (often 1.0)
+# lambda_   : Compression strength parameter (λ)
+# kappa     : Compression scale (κ)
+# n         : Nonlinearity exponent
+# E_gap     : Mass gap threshold (energy locking threshold)
+# omega0    : Initial twist amplitude
+# sigma     : Width of Gaussian seed (in lattice units)
+# threshold_duration : Number of timesteps a point must exceed E_gap to be considered "locked"
+
+
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 

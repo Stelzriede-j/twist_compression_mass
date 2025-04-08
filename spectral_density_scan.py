@@ -1,20 +1,34 @@
-#~
-# spectral_density_scan.py
-# Estimate the spectral gap and energy level structure of the
-# twist-compression SU(2) lattice gauge theory.
-#
-# This test computes the time-sliced correlator:
-#   C(t) = ⟨ O(0) O(t) ⟩
-# where O(t) is a local gauge-invariant observable at Euclidean time t.
-#
-# The decay of C(t) is used to extract the energy of the lowest excitation
-# E₁ via a fit to exponential decay:
-#   C(t) ≈ A * exp(−E₁ * t)
-#
-# This provides a direct numerical estimate of the mass gap from the
-# Euclidean spectrum of the model.
-#
-# Output: log(C(t)) vs t plot + exponential fit → estimates gap from slope.
+"""
+Title: Appendix D.2 – Spectral Density Scan (Euclidean Time Correlator)
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script measures the time-separated Euclidean correlator C(t) and extracts the spectral
+    mass gap by fitting log C(t) over a chosen time window. The decay rate corresponds to the
+    lowest excitation energy, consistent with the spectral theorem and constructive QFT principles.
+    This test numerically confirms that the model exhibits exponential decay in time correlators
+    and supports the spectral gap construction outlined in Appendix D.2 and Section 16.1.
+
+    Purpose:
+    - Validates: Existence of a spectral mass gap via Euclidean correlator decay
+    - Method: MCMC over twist-compression field samples
+    - Parameters used: λ = 1.49, n = 2.17 (calibrated freeze-lock spectrum)
+
+Reproducibility:
+    - Matches: Mass gap estimate and fit plots in Appendix D.2
+    - Matches script: spectral_density_scan.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L              : Lattice dimensions (Lx, Ly, Lz, T)
+# num_samples    : Number of MCMC configurations
+# lambda_, n     : Twist-compression parameters
+# seed           : RNG seed for reproducibility
+# observable     : Gauge-invariant observable used for correlator
+# fit_window     : Time slice range used to extract decay rate (e.g., t = 4–10)
+# sim_to_MeV     : Energy scale conversion (optional)
 
 import numpy as np
 from scipy.linalg import expm

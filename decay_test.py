@@ -1,3 +1,38 @@
+"""
+Title: Appendix A.5 – Decay Test (Persistence Without Continued Input)
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script implements the test described in Appendix A.5 of the paper:
+    "Twist Compression and the Yang–Mills Mass Gap"
+
+    Purpose:
+    - Validates: Mass persistence after twist propagation halts
+    - Locking logic: duration-based (≥ 5 frames)
+    - Parameters used: λ = 0.5, n = 1.8 (validated configuration from freeze-lock spectrum)
+
+Reproducibility:
+    - Matches Figure: appendix_decay_test.png
+    - Matches script: a5_decay_test.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L         : Lattice size (L x L grid)
+# T         : Number of time steps
+# dx, dt    : Spatial and temporal resolution
+# m         : Mass-like parameter for twist inertia
+# r         : Radius scaling factor (often 1.0)
+# lambda_   : Compression strength parameter (λ)
+# kappa     : Compression scale (κ)
+# n         : Nonlinearity exponent
+# E_gap     : Mass gap threshold (energy locking threshold)
+# omega0    : Initial twist amplitude
+#
+
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 

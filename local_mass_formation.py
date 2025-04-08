@@ -1,9 +1,39 @@
-#~ ------------------------------------------------------------------
-#~ Twist-Compression Mass Gap Model – Numerical Test
-#~ Appendix A.1: Localized Mass Formation (Field Locking Behavior)
-#~ Demonstrates that a single above-threshold twist excitation stabilizes
-#~ into a persistent, localized mass region under compression dynamics.
-#~ ------------------------------------------------------------------
+"""
+Title: Support Script – Local Mass Formation Test
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script tests whether a single Gaussian twist excitation locally accumulates energy
+    and locks into a persistent mass structure above a fixed energy threshold. It serves as
+    a minimal reproducibility check for twist-compression dynamics prior to running full
+    spectrum, decay, or stability tests. This script was used to validate the energy locking
+    mechanism and visualize isolated mass formation behavior.
+
+    Purpose:
+    - Validates: Local energy accumulation from a single twist seed
+    - Locking logic: duration-based (≥ 5 frames)
+    - Parameters used: λ = 0.5, n = 1.8 (tested configuration)
+
+Reproducibility:
+    - Matches behavior in Appendix A.3 (mass persistence)
+    - Used as an internal validation tool; not tied to a specific figure
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L         : Lattice size (L x L grid)
+# T         : Number of time steps
+# dx, dt    : Spatial and temporal resolution
+# m         : Mass-like parameter for twist inertia
+# r         : Radius scaling factor (often 1.0)
+# lambda_   : Compression strength parameter (λ)
+# kappa     : Compression scale (κ)
+# n         : Nonlinearity exponent
+# E_gap     : Mass gap threshold (energy locking threshold)
+# omega0    : Initial twist amplitude
+# sigma     : Width of Gaussian seed (in lattice units)
+# threshold_duration : Number of timesteps a point must exceed E_gap to be considered "locked"
 
 import numpy as np
 import matplotlib.pyplot as plt

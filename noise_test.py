@@ -1,3 +1,42 @@
+"""
+Title: Appendix A.6 – Noise Robustness Test
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script implements the test described in Appendix A.6 of the paper:
+    "Twist Compression and the Yang–Mills Mass Gap"
+
+    Purpose:
+    - Validates: Stability of mass states under stochastic perturbation
+    - Locking logic: duration-based (≥ 5 frames)
+    - Parameters used: λ = 0.5, n = 2, σ_noise = 0.01
+
+Reproducibility:
+    - Matches Figure: appendix_noise_test.png
+    - Matches script: noise_test.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L         : Lattice size (L x L grid)
+# T         : Number of time steps
+# dx, dt    : Spatial and temporal resolution
+# m         : Mass-like parameter for twist inertia
+# r         : Radius scaling factor (often 1.0)
+# lambda_   : Compression strength parameter (λ)
+# kappa     : Compression scale (κ)
+# n         : Nonlinearity exponent
+# E_gap     : Mass gap threshold (energy locking threshold)
+# omega0    : Initial twist amplitude
+# sigma     : Width of Gaussian seed (in lattice units)
+# threshold_duration : Number of timesteps a point must exceed E_gap to be considered "locked"
+# positions : List of seed locations for mass formation
+# noise_std : Standard deviation of Gaussian noise added at each grid point per timestep
+# seed      : Random seed used to ensure reproducibility
+
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 

@@ -1,3 +1,42 @@
+"""
+Title: Appendix A.7 – Glueball Ratio Scan
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script scans across multiple values of the twist-compression parameters (λ, n)
+    and computes the mass ratio m₄ / m₃ for each parameter set. The goal is to identify
+    configurations that yield mass spectra matching known SU(3) glueball ratios from
+    lattice QCD. This script was used to identify the best-matching configuration
+    (λ = 1.49, n = 2.17), which is used throughout Appendix A.2 and A.7.
+
+    Purpose:
+    - Validates: Parameter regions consistent with $2^{++}/0^{++}$ glueball ratios
+    - Locking logic: freeze-lock (E > E_gap at final timestep)
+    - Parameters scanned: λ and n (twist-compression strength and nonlinearity)
+
+Reproducibility:
+    - Matches: calibrated spectrum and mass ratios in Appendix A.7
+    - Matches script: glueball_ratio_scan.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L         : Lattice size (L x L grid)
+# T         : Number of time steps
+# dx, dt    : Spatial and temporal resolution
+# m         : Mass-like parameter for twist inertia
+# r         : Radius scaling factor (often 1.0)
+# lambda_   : Compression strength parameter (λ, scanned)
+# kappa     : Compression scale (κ)
+# n         : Nonlinearity exponent (scanned)
+# E_gap     : Mass gap threshold (energy locking threshold)
+# omega_seeds : Initial twist values used to generate mass spectrum
+# sim_to_MeV : Unit conversion factor (simulation → physical units)
+# target_levels : Indexes of levels to compare (e.g. Level 3 and 4)
+
+
+
 import numpy as np
 
 # Simulation constants

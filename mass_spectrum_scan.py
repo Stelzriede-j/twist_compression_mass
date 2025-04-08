@@ -1,3 +1,42 @@
+"""
+Title: Appendix A.2 – Mass Spectrum Scan (Quantized Energy Levels)
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script generates the locked mass spectrum by sweeping across initial twist seed amplitudes (ω₀)
+    and measuring the resulting locked energy after freeze-lock evolution. The output is a calibrated,
+    quantized mass spectrum. This script is used in both Appendix A.2 (spectrum quantization) and A.7
+    (glueball ratio matching), with Level 3 calibrated to 1700 MeV.
+
+    Purpose:
+    - Validates: Discrete excitation levels and mass quantization under twist-compression dynamics
+    - Locking logic: freeze-lock (E > E_gap at final timestep)
+    - Parameters used: λ = 1.49, n = 2.17 (validated configuration from A.7)
+
+Reproducibility:
+    - Matches Figures: appendix_spectrum_scan.png, appendix_glueball_spectrum.png
+    - Matches script: mass_spectrum_scan.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L              : Lattice size (L x L grid)
+# T              : Number of time steps
+# dx, dt         : Spatial and temporal resolution
+# m              : Mass-like parameter for twist inertia
+# r              : Radius scaling factor (often 1.0)
+# lambda_        : Compression strength parameter (λ)
+# kappa          : Compression scale (κ)
+# n              : Nonlinearity exponent
+# E_gap          : Mass gap threshold (energy locking threshold)
+# omega_seeds    : List of twist amplitudes used to generate spectrum
+# sigma          : Width of Gaussian seed (in lattice units)
+# sim_to_MeV     : Energy conversion factor (simulation units → MeV)
+# calibration_index : Index of reference level (e.g., Level 3) used for spectrum calibration
+
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 

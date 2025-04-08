@@ -1,5 +1,38 @@
-# parameter_stability_scan.py
-# Monte Carlo scan over (lambda, n) for stable mass gap across volumes
+"""
+Title: Numerical Results 16.5 – Parameter Stability Scan (Volume Cross-Check)
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script sweeps over combinations of twist-compression parameters (λ, n)
+    and evaluates their spectral stability across multiple lattice volumes (L = 12, 16, 20, 24).
+    It tracks which configurations produce a stable physical mass gap under fixed sampling conditions,
+    and identifies statistically consistent regions suitable for further analysis.
+    Results from this script support the parameter space discussion in Section 16.5.
+
+    Purpose:
+    - Validates: Parameter ranges that consistently yield nonzero mass gaps across volume
+    - Locking logic: MCMC-based correlation function decay (not explicit duration or freeze-lock)
+    - Parameters scanned: λ and n
+
+Reproducibility:
+    - Matches Table: sample-stable configurations (Section 16.5)
+    - Matches script: parameter_stability_scan.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# volumes     : List of lattice volume sizes (e.g., 12, 16, 20, 24)
+# a           : Fixed lattice spacing (e.g., a = 0.5)
+# num_samples : Number of Metropolis samples per volume
+# lambda_vals : Array of λ values to scan
+# n_vals      : Array of n values to scan
+# seed        : Random seed for reproducibility
+# dx, dt      : Grid and time resolution (may be implicit in action)
+# fit_window  : Range of correlation decay values used for mass extraction
+# m_phys      : Extracted physical mass gap per volume and parameter set
+# stable_set  : List of configurations that pass all volume tests
+
 
 import numpy as np
 from scipy.optimize import curve_fit

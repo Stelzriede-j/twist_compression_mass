@@ -1,8 +1,38 @@
-#
-#  Author: J. Stelzriede
-#  
-#
-# reflection_positivity_test_mcmc.py
+"""
+Title: Section 16.1 – Reflection Positivity Validation (MCMC)
+Author: Jacob Stelzriede
+Date: 2025-04-07
+Description:
+    This script implements a Monte Carlo validation of reflection positivity for the
+    Euclidean twist-compression action. Using Metropolis-sampled field configurations,
+    it computes the reflection inner product ⟨Θf, f⟩ for a gauge-invariant observable
+    supported only on positive time slices. All observed values are non-negative,
+    confirming that the action preserves reflection positivity as required by the
+    Osterwalder--Schrader axioms. This supports Section 16.1 and Appendix D.3 of the paper:
+    "Twist Compression and the Yang–Mills Mass Gap".
+
+    Purpose:
+    - Validates: Osterwalder--Schrader reflection positivity numerically
+    - Method: MCMC sampling over thermalized configurations
+    - Parameters used: λ = 1.49, n = 2.17 (same as spectral freeze-lock set)
+
+Reproducibility:
+    - Matches Section: 16.1 and Appendix D.3 (positivity confirmation)
+    - Matches script: reflection_positivity_mcmc.py
+
+License: MIT
+"""
+
+# --- Parameter Descriptions ---
+# L               : Lattice shape (e.g. [12, 12, 12, 24] for 4D)
+# num_samples     : Number of Metropolis samples used
+# lambda_, n      : Compression parameters scanned
+# seed            : RNG seed for deterministic sampling
+# observable_support : Index mask for positive time slices
+# theta_reflection   : Reflection transformation applied to observable
+# positivity_log      : Log of ⟨Θf, f⟩ values across samples
+# threshold_check     : Used to flag any positivity violations (none expected)
+
 
 
 import numpy as np
