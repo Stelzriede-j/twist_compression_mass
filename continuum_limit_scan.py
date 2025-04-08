@@ -190,9 +190,9 @@ def run_single_spacing_test(a, L_phys=8, N_samples=5000, fit_range=(4, 8)):
     L = (L_size, L_size, L_size, L_size * 2)
 
     beta = 2.0
-    lam = 0.6
+    lam = 1.49
     kappa = 1.0
-    n = 2.5
+    n = 2.17
     epsilon = 0.24
 
     print(f"\n--- Running test for a = {a}, L = {L} ---")

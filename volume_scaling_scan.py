@@ -1,5 +1,5 @@
 #
-# volume_scaling_scan.py
+# 
 # Evaluate whether the mass gap in the twist-compression SU(2) model
 # is an artifact of finite volume, or survives in the infinite-volume limit.
 #
@@ -239,12 +239,12 @@ def run_volume_scaling_test(a=0.5, L_list=[12, 16, 20, 24], N_samples=20000):
     # inverse gauge coupling, higher beta, weaker couple
     beta = 2.0
     # twist compression term strength, larger lamda is more robust to volume scale
-    lam = 1.457
+    lam = 1.49
     # scaling factor, like compression stiffness
     kappa = 1.0
     # nonlinearity exponent in compression term, large n is small twist weak penalty..
     # this creates threshold like behavior, helps inforce gap in large L
-    n = 3.69
+    n = 2.17
     # size of random SU(2) perturbations, like step size, larger epsilon more exploration per step
     # smaller is higher acceptance but slower decorrelation
     epsilon = 0.24
@@ -258,7 +258,8 @@ def run_volume_scaling_test(a=0.5, L_list=[12, 16, 20, 24], N_samples=20000):
         L = (L_size, L_size, L_size, L_size * 2)
         print(f"\n--- Volume Scaling: L = {L}, a = {a} ---")
 
-        np.random.seed(42 + trial_id * 100 + L_size)
+        #np.random.seed(42 + trial_id * 100 + L_size)
+        np.random.seed(42)
 
         U = initialize_links(*L)
         print(f"Running thermalize for L = {L}, λ = {lam}, n = {n}, random check = {np.random.rand()}")
